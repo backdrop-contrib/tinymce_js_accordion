@@ -129,7 +129,7 @@
         let content = '<dl class="ckeditor-accordion">';
         content += '<dt>Accordion title 1</dt><dd><p>Accordion content 1.</p></dd>';
         content += '<dt>Accordion title 2</dt><dd><p>Accordion content 2.</p></dd>';
-        content += '</dl>';
+        content += '</dl><p><br data-mce-bogus="1"></p>';
         editor.insertContent(content);
       },
       onSetup: function (api) {
