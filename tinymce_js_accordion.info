@@ -6,3 +6,5 @@ backdrop = 1.x
 dependencies[] = tinymce
 scripts[] = js/tinymce-js-accordion.js
 configure = admin/config/content/tinymce_js_accordion
+maintainers[indigoxela] = indigoxela
+maintainers_wanted = TRUE
