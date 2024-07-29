@@ -7,7 +7,7 @@
 
 (function ($) {
   'use strict';
-  Backdrop.behaviors.tinymceDesclist = {
+  Backdrop.behaviors.tinymceJsAccordion = {
     attach: function (context, settings) {
 
       var $ckeditorAccordion = $('.ckeditor-accordion');
