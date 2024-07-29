@@ -1,0 +1,101 @@
+<?php
+/**
+ * @file
+ * TinyMCE Javascript Accordion module main code.
+ */
+
+/**
+ * Implements hook_tinymce_external_plugins().
+ */
+function tinymce_js_accordion_tinymce_external_plugins($format) {
+  $module_url = base_path() . backdrop_get_path('module', 'tinymce_js_accordion');
+  $plugins = array(
+    'js_accordion' => array(
+      'plugin_path' => $module_url . '/js/plugins/js_accordion/plugin.js',
+      'buttons' => array(
+        'js_accordion' => array(
+          'icon' => 'js-accordion',
+          'tooltip' => t('Insert JS accordion'),
+          'required_tags' => array('dl', 'dt', 'dd'),
+        ),
+      ),
+      'icons' => array(
+        'js-accordion' => 'js-accordion.svg',
+        'dd-add-before' => 'add-before.svg',
+        'dd-add-after' => 'add-after.svg',
+      ),
+      'variables' => array(
+        'tinyJsAccToolbarButtonText' => t('Insert JS Accordion'),
+        'tinyJsAccInsertBeforeButtonText' => t('Insert before'),
+        'tinyJsAccInsertAfterButtonText' =>t('Insert after'),
+        'tinyJsAccDeleteButtonText' => t('Delete item'),
+        'tinyJsAccWarnMessageText' => t('Javascript accordions can not be nested.'),
+      ),
+    ),
+  );
+  return $plugins;
+}
+
+/**
+ * Implements hook_tinymce_options_alter().
+ */
+function tinymce_js_accordion_tinymce_options_alter(array &$options, $format) {
+  // Add CSS file to editor content if needed.
+  $module_url = base_path() . backdrop_get_path('module', 'tinymce_js_accordion');
+  if (empty($options['tiny_options']['external_plugins'])) {
+    return;
+  }
+  if (!empty($options['tiny_options']['external_plugins']['js_accordion'])) {
+    $options['tiny_options']['content_css'][] = $module_url . '/css/tinymce-js-accordion.css';
+  }
+}
+
+/**
+ * Implements hook_menu().
+ */
+function tinymce_js_accordion_menu() {
+  $items = array();
+  $items['admin/config/content/tinymce_js_accordion'] = array(
+    'title' => 'TinyMCE Javascript Accordion',
+    'page callback' => 'backdrop_get_form',
+    'page arguments' => array('tinymce_js_accordion_admin_form'),
+    'access arguments' => array('administer filters'),
+    'type' => MENU_NORMAL_ITEM,
+  );
+
+  return $items;
+}
+
+/**
+ * Implements hook_config_info().
+ */
+function tinymce_js_accordion_config_info() {
+  $prefixes['tinymce_js_accordion.settings'] = array(
+    'label' => t('CKEditor Accordion settings'),
+    'group' => t('Configuration'),
+  );
+  return $prefixes;
+}
+
+/**
+ * Create settings page for the module.
+ */
+function tinymce_js_accordion_admin_form($form, $form_state) {
+  $form['#config'] = 'tinymce_js_accordion.settings';
+  $form['tinymce_js_accordion_collapsed'] = array(
+    '#type' => 'checkbox',
+    '#title' => t('Collapse all tabs by default'),
+    '#default_value' => config_get('tinymce_js_accordion.settings', 'tinymce_js_accordion_collapsed'),
+  );
+  return system_settings_form($form);
+}
+
+/**
+ * Implements hook_preprocess_HOOK().
+ */
+function tinymce_js_accordion_preprocess_page(&$variables) {
+  $config = config_get('tinymce_js_accordion.settings', 'tinymce_js_accordion_collapsed');
+  if ($config) {
+    backdrop_add_js(array('tinymce_js_accordion' => array('collapseAll' => 1)), array('type' => 'setting'));
+  }
+}
