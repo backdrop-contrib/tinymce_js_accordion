@@ -13,7 +13,8 @@ conflict.
 ## Installation
 
 - Install this module using the official [Backdrop CMS instructions](https://docs.backdropcms.org/documentation/extend-with-modules)
-- Edit your custom TinyMCE profile to add this toolbar button
+- Edit your custom TinyMCE profile on admin/config/content/tinymce-builder to
+  add this plugin's toolbar button
 
 Functionality sort of overlaps with CKEditor accordion plugin, but doesn't
 conflict.
