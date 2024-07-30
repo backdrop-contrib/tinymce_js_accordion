@@ -10,6 +10,8 @@ changes to content, as this plugin re-uses the same CSS class
 It's also possible to have both modules on in parallel, as they don't
 conflict.
 
+![Screenshot of the open editor](https://raw.githubusercontent.com/backdrop-contrib/tinymce_js_accordion/1.x-1.x/screenshots/tinymce-js-accordion.webp)
+
 ## Installation
 
 - Install this module using the official [Backdrop CMS instructions](https://docs.backdropcms.org/documentation/extend-with-modules)
