@@ -12,6 +12,14 @@ conflict.
 
 ![Screenshot of the open editor](https://raw.githubusercontent.com/backdrop-contrib/tinymce_js_accordion/1.x-1.x/screenshots/tinymce-js-accordion.webp)
 
+To avoid confusion: TinyMCE already ships with an accordion plugin out of the
+box. That one works with different HTML tags (details, summary) and doesn't need
+any Javascript for toggling.
+
+This plugin here works with dl, dt, dd tags and does need Javascript. This
+module's purpose is to faciliate the transition from deprecated and unsupported
+CKEditor4 to a supported and up-to-date editor.
+
 ## Installation
 
 - Install this module using the official [Backdrop CMS instructions](https://docs.backdropcms.org/documentation/extend-with-modules)
