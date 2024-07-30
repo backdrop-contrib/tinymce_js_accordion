@@ -1,14 +1,26 @@
 # TinyMCE Javascript Accordion
 
-Plugin to replace CKEditor accordion, work in progress.
+TinyMCE plugin that replicates the functionality of the [CKEditor Accordion](https://backdropcms.org/project/ckeditor_accordion)
+plugin for this alternative editor. To make switching easier.
+
+It's possible to toggle on the fly between the two plugins without any
+changes to content, as this plugin re-uses the same CSS class
+(ckeditor-accordion).
+
+It's also possible to have both modules on in parallel, as they don't
+conflict.
 
 ## Installation
 
 - Install this module using the official [Backdrop CMS instructions](https://docs.backdropcms.org/documentation/extend-with-modules)
 - Edit your custom TinyMCE profile to add this toolbar button
 
-Functionality sort of overlaps with CKEditor accordion plugin, but should not
+Functionality sort of overlaps with CKEditor accordion plugin, but doesn't
 conflict.
+
+## Dependencies
+
+- TinyMCE
 
 ## Issues
 
