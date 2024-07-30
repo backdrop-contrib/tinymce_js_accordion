@@ -87,6 +87,11 @@ function tinymce_js_accordion_admin_form($form, $form_state) {
     '#title' => t('Collapse all tabs by default'),
     '#default_value' => config_get('tinymce_js_accordion.settings', 'tinymce_js_accordion_collapsed'),
   );
+  if (module_exists('ckeditor_accordion')) {
+    backdrop_set_message(t('Note that as long as the CKEditor Accordion module is installed, this setting here has no impact, as the module settings on <a href="!url">admin/config/content/ckeditor_accordion</a> win.', array(
+      '!url' => url('admin/config/content/ckeditor_accordion'),
+    )), 'info');
+  }
   return system_settings_form($form);
 }
 
