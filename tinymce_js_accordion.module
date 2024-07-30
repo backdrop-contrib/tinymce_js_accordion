@@ -46,7 +46,7 @@ function tinymce_js_accordion_tinymce_options_alter(array &$options, $format) {
     return;
   }
   if (!empty($options['tiny_options']['external_plugins']['js_accordion'])) {
-    $options['tiny_options']['content_css'][] = $module_url . '/css/tinymce-js-accordion.css';
+    $options['tiny_options']['content_css'][] = $module_url . '/css/tinymce-js-accordion-editor.css';
   }
 }
 

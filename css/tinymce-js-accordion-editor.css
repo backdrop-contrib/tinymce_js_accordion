@@ -1,0 +1,24 @@
+/**
+ * Content CSS for TinyMCE JS accordion plugin, applied to editor content only.
+ */
+dl.ckeditor-accordion {
+  outline: 2px dashed #ccc;
+  padding: .3em .6em .9em;
+}
+dl.ckeditor-accordion::before {
+  content: 'JS Accordion';
+  font-weight: bold;
+  display: block;
+  padding-bottom: .5em;
+  opacity: .7;
+}
+.ckeditor-accordion dt {
+  background: #2a6091;
+  color: #fff;
+  padding: .3em .5em;
+}
+.ckeditor-accordion dd {
+  outline: 2px dotted #2a6091;
+  padding: .5em;
+  margin: 0 2px;
+}
