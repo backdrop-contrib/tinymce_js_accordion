@@ -13,12 +13,12 @@ dl.ckeditor-accordion::before {
   opacity: .7;
 }
 .ckeditor-accordion dt {
-  background: #2a6091;
+  background: #38799f;
   color: #fff;
-  padding: .3em .5em;
+  padding: .5em .7em;
 }
 .ckeditor-accordion dd {
-  outline: 2px dotted #2a6091;
+  outline: 2px dotted #38799f;
   padding: .5em;
   margin: 0 2px;
 }
