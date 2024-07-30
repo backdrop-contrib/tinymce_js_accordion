@@ -40,11 +40,11 @@ function tinymce_js_accordion_tinymce_external_plugins($format) {
  * Implements hook_tinymce_options_alter().
  */
 function tinymce_js_accordion_tinymce_options_alter(array &$options, $format) {
-  // Add CSS file to editor content if needed.
-  $module_url = base_path() . backdrop_get_path('module', 'tinymce_js_accordion');
   if (empty($options['tiny_options']['external_plugins'])) {
     return;
   }
+  // Add CSS file to editor content if needed.
+  $module_url = base_path() . backdrop_get_path('module', 'tinymce_js_accordion');
   if (!empty($options['tiny_options']['external_plugins']['js_accordion'])) {
     $options['tiny_options']['content_css'][] = $module_url . '/css/tinymce-js-accordion-editor.css';
   }
