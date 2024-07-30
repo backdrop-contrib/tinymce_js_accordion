@@ -57,6 +57,7 @@ function tinymce_js_accordion_menu() {
   $items = array();
   $items['admin/config/content/tinymce_js_accordion'] = array(
     'title' => 'TinyMCE JavaScript Accordion',
+    'description' => 'Site wide settings for the TinyMCE JavaScript Accordion module.',
     'page callback' => 'backdrop_get_form',
     'page arguments' => array('tinymce_js_accordion_admin_form'),
     'access arguments' => array('administer filters'),
