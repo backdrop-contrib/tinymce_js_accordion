@@ -27,7 +27,7 @@ function tinymce_js_accordion_tinymce_external_plugins($format) {
       'variables' => array(
         'tinyJsAccToolbarButtonText' => t('Insert JS Accordion'),
         'tinyJsAccInsertBeforeButtonText' => t('Insert before'),
-        'tinyJsAccInsertAfterButtonText' =>t('Insert after'),
+        'tinyJsAccInsertAfterButtonText' => t('Insert after'),
         'tinyJsAccDeleteButtonText' => t('Delete item'),
         'tinyJsAccWarnMessageText' => t('Javascript accordions can not be nested.'),
       ),
