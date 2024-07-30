@@ -1,6 +1,6 @@
 /**
  * @file
- * TinyMCE Javascript Accordion plugin.
+ * TinyMCE JavaScript Accordion plugin.
  */
 (function () {
 

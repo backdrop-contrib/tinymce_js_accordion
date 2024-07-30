@@ -1,4 +1,4 @@
-# TinyMCE Javascript Accordion
+# TinyMCE JavaScript Accordion
 
 TinyMCE plugin that replicates the functionality of the [CKEditor Accordion](https://backdropcms.org/project/ckeditor_accordion)
 plugin for this alternative editor. To make switching easier.
@@ -14,9 +14,9 @@ conflict.
 
 To avoid confusion: TinyMCE already ships with an accordion plugin out of the
 box. That one works with different HTML tags (details, summary) and doesn't need
-any Javascript for toggling.
+any JavaScript for toggling.
 
-This plugin here works with dl, dt, dd tags and does need Javascript. This
+This plugin here works with dl, dt, dd tags and does need JavaScript. This
 module's purpose is to faciliate the transition from deprecated and unsupported
 CKEditor4 to a supported and up-to-date editor.
 

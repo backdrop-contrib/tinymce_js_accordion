@@ -1,6 +1,6 @@
 /**
  * @file
- * Backdrop behaviors for Javascript animated accordions based on dl/dt/dd.
+ * Backdrop behaviors for animated accordions based on dl/dt/dd.
  *
  * Mostly just a copy of CKEditor Accordion functionality.
  */

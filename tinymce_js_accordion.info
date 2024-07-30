@@ -1,6 +1,6 @@
 type = module
-name = TinyMCE Javascript Accordions
-description = Insert description lists into content that will turn into Javascript animated accordions after saving.
+name = TinyMCE JavaScript Accordions
+description = Insert description lists into content that will turn into JavaScript animated accordions after saving.
 backdrop = 1.x
 
 dependencies[] = tinymce

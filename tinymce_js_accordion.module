@@ -1,7 +1,7 @@
 <?php
 /**
  * @file
- * TinyMCE Javascript Accordion module main code.
+ * TinyMCE JavaScript Accordion module main code.
  */
 
 /**
@@ -29,7 +29,7 @@ function tinymce_js_accordion_tinymce_external_plugins($format) {
         'tinyJsAccInsertBeforeButtonText' => t('Insert before'),
         'tinyJsAccInsertAfterButtonText' => t('Insert after'),
         'tinyJsAccDeleteButtonText' => t('Delete item'),
-        'tinyJsAccWarnMessageText' => t('Javascript accordions can not be nested.'),
+        'tinyJsAccWarnMessageText' => t('JavaScript accordions can not be nested.'),
       ),
     ),
   );
@@ -56,7 +56,7 @@ function tinymce_js_accordion_tinymce_options_alter(array &$options, $format) {
 function tinymce_js_accordion_menu() {
   $items = array();
   $items['admin/config/content/tinymce_js_accordion'] = array(
-    'title' => 'TinyMCE Javascript Accordion',
+    'title' => 'TinyMCE JavaScript Accordion',
     'page callback' => 'backdrop_get_form',
     'page arguments' => array('tinymce_js_accordion_admin_form'),
     'access arguments' => array('administer filters'),
@@ -71,7 +71,7 @@ function tinymce_js_accordion_menu() {
  */
 function tinymce_js_accordion_config_info() {
   $prefixes['tinymce_js_accordion.settings'] = array(
-    'label' => t('TinyMCE Javascript Accordion settings'),
+    'label' => t('TinyMCE JavaScript Accordion settings'),
     'group' => t('Configuration'),
   );
   return $prefixes;
