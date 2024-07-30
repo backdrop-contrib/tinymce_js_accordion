@@ -34,6 +34,16 @@ CKEditor4 to a supported and up-to-date editor.
 
 Bugs and feature requests should be reported in the [Issue Queue](https://github.com/backdrop-contrib/tinymce_js_accordion/issues)
 
+## Known issues
+
+When the *lists* plugin's also enabled, the tab key gets captured by it for list
+indent/outdent - also for DL. That leads to all sorts of weird behavior with tab
+key inside definition lists.
+
+There's not much we can do about that. Simply avoid using the tab key inside
+definition lists. Or disable list indent/outdent behavior by setting the
+`lists_indent_on_tab` option to false in your editor profile (in JSON code).
+
 ## Current Maintainers
 
 - [Indigoxela](https://github.com/indigoxela)
