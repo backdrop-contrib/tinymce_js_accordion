@@ -16,9 +16,6 @@ conflict.
 - Edit your custom TinyMCE profile on admin/config/content/tinymce-builder to
   add this plugin's toolbar button
 
-Functionality sort of overlaps with CKEditor accordion plugin, but doesn't
-conflict.
-
 ## Dependencies
 
 - TinyMCE
