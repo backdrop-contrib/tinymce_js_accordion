@@ -71,7 +71,7 @@ function tinymce_js_accordion_menu() {
  */
 function tinymce_js_accordion_config_info() {
   $prefixes['tinymce_js_accordion.settings'] = array(
-    'label' => t('CKEditor Accordion settings'),
+    'label' => t('TinyMCE Javascript Accordion settings'),
     'group' => t('Configuration'),
   );
   return $prefixes;
