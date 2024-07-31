@@ -43,6 +43,8 @@ key inside definition lists.
 There's not much we can do about that. Simply avoid using the tab key inside
 definition lists. Or disable list indent/outdent behavior by setting the
 `lists_indent_on_tab` option to false in your editor profile (in JSON code).
+See the [related issue](https://github.com/backdrop-contrib/tinymce_js_accordion/issues/1)
+in the queue.
 
 ## Current Maintainers
 
