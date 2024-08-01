@@ -149,8 +149,8 @@
                 editor.dom.remove(node);
                 return;
               }
-              // Combine back two blocks to a single one as Tiny normally does
-              // outside DL.
+              // Merge two consecutive blocks like Tiny normally does outside
+              // DL.
               if (node.nodeName === 'P' || node.nodeName === 'DIV') {
                 if (node.previousSibling && node.previousSibling.nodeName === node.nodeName) {
                   let rng = editor.selection.getRng();
