@@ -137,7 +137,7 @@
           // Fix backspace key handling inside description lists (DL).
           if (event.keyCode === 8) {
             let node = editor.selection.getNode();
-            if (node.closest('dd') !== null && event.defaultPrevented) {
+            if (node.closest('dd') !== null) {
               if (node.nodeName === 'DD') {
                 return;
               }
@@ -162,6 +162,10 @@
                   }
                 }
               }
+            }
+            // Remove empty DL.
+            if (node.nodeName === 'DL' && !node.children.length) {
+              editor.dom.remove(node);
             }
           }
         });
