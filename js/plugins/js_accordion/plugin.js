@@ -143,7 +143,11 @@
               }
               // Remove empty block elements.
               if (!node.textContent && node.children.length === 1 && node.firstChild.nodeName === 'BR') {
+                if (node.previousSibling) {
+                  editor.selection.setCursorLocation(node.previousSibling, 1);
+                }
                 editor.dom.remove(node);
+                return;
               }
               // Combine back two blocks to a single one as Tiny normally does
               // outside DL.
