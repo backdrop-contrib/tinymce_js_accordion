@@ -98,7 +98,7 @@
     if (targetNode) {
       let delNodes = [];
       delNodes.push(targetNode);
-      if (targetNode.nodeName === 'DT' && targetNode.nextSibling.nodeName === 'DD') {
+      if (targetNode.nodeName === 'DT' && targetNode.nextSibling && targetNode.nextSibling.nodeName === 'DD') {
         delNodes.push(targetNode.nextSibling);
       }
       else if (targetNode.nodeName === 'DD' && targetNode.previousSibling.nodeName === 'DT') {
@@ -134,20 +134,66 @@
       },
       onSetup: function (api) {
         editor.on('keydown', function (event) {
-          if (event.keyCode !== 13) {
-            return;
-          }
-          if (event.target.nodeName === 'DT') {
-            event.preventDefault();
+          // Fix backspace key handling inside description lists (DL).
+          if (event.keyCode === 8) {
+            let node = editor.selection.getNode();
+            if (node.closest('dd') !== null) {
+              if (node.nodeName === 'DD') {
+                return;
+              }
+              // Remove empty block elements.
+              if (!node.textContent && node.children.length === 1 && node.firstChild.nodeName === 'BR') {
+                if (node.previousSibling) {
+                  editor.selection.setCursorLocation(node.previousSibling, 1);
+                }
+                editor.dom.remove(node);
+                return;
+              }
+              // Merge two consecutive blocks like Tiny normally does outside
+              // DL.
+              if (node.nodeName === 'P' || node.nodeName === 'DIV') {
+                if (node.previousSibling && node.previousSibling.nodeName === node.nodeName) {
+                  let rng = editor.selection.getRng();
+                  if (rng.collapsed && rng.startOffset === 0) {
+                    let bookmark = editor.selection.getBookmark();
+                    node.previousSibling.innerHTML = node.previousSibling.innerHTML + node.innerHTML;
+                    editor.dom.remove(node);
+                    editor.selection.moveToBookmark(bookmark);
+                  }
+                }
+              }
+            }
+            // Remove empty DL.
+            if (node.nodeName === 'DL' && !node.children.length) {
+              editor.dom.remove(node);
+            }
           }
         });
+        // We can not prevent new blocks where we don't want them. Instead we
+        // revert their creation after it happened.
         editor.on('NewBlock', function (event) {
+          // Prevent paragraphs or other blocks inside DT.
           if (event.newBlock.nodeName === 'DT') {
             let prevContent = event.newBlock.previousSibling.innerHTML;
             let thisContent = event.newBlock.innerHTML;
+            if (thisContent === '<br data-mce-bogus="1">') {
+              thisContent = '';
+            }
             event.newBlock.previousSibling.innerHTML = prevContent + thisContent;
             editor.selection.setCursorLocation(event.newBlock.previousSibling, 1);
             editor.dom.remove(event.newBlock);
+          }
+          // Directly in DD, instead of letting Tiny split it into two DD, which
+          // makes no sense, wrap content in P.
+          else if (event.newBlock.nodeName === 'DD') {
+            let node = event.newBlock;
+            if (node.previousSibling && node.previousSibling.nodeName === 'DD') {
+              let prevContent = node.previousSibling.innerHTML;
+              let thisContent = node.innerHTML;
+              event.newBlock.previousSibling.innerHTML = '<p>' + prevContent + '</p><p>' + thisContent + '</p>';
+              editor.selection.setCursorLocation(event.newBlock.previousSibling.children[1], 0);
+              editor.dom.remove(event.newBlock);
+            }
           }
         });
       }

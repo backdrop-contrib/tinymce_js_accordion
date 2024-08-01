@@ -22,3 +22,7 @@ dl.ckeditor-accordion::before {
   padding: .5em;
   margin: 0 2px;
 }
+.ckeditor-accordion dt,
+.ckeditor-accordion dd {
+  min-height: 1em;
+}
