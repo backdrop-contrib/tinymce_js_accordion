@@ -38,7 +38,7 @@ Bugs and feature requests should be reported in the [Issue Queue](https://github
 
 When the *lists* plugin's also enabled, the tab key gets captured by it for list
 indent/outdent - also for DL. That leads to all sorts of weird behavior with tab
-key inside definition lists.
+key inside description lists.
 
 There's not much we can do about that. Simply avoid using the tab key inside
 definition lists. Or disable list indent/outdent behavior by setting the
