@@ -10,7 +10,7 @@ changes to content, as this plugin re-uses the same CSS class
 It's also possible to have both modules on in parallel, as they don't
 conflict.
 
-![Screenshot of the open editor](https://raw.githubusercontent.com/backdrop-contrib/tinymce_js_accordion/1.x-1.x/screenshots/tinymce-js-accordion.webp)
+![Screenshot of the open editor](https://raw.githubusercontent.com/backdrop-contrib/tinymce_js_accordion/1.x-1.x/screenshots/tinymce-js-accordion.png)
 
 To avoid confusion: TinyMCE already ships with an accordion plugin out of the
 box. That one works with different HTML tags (details, summary) and doesn't need
