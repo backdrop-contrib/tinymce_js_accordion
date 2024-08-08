@@ -12,7 +12,7 @@
     if (node.nodeName === 'DT') {
       targetDt = node;
     }
-    else if (node.nodeName === 'DD' && node.previousSibling.nodeName === 'DT') {
+    else if (node.nodeName === 'DD' && node.previousSibling && node.previousSibling.nodeName === 'DT') {
       targetDt = node.previousSibling;
     }
     else {
@@ -24,7 +24,7 @@
           targetDt = node;
           break;
         }
-        if (node.nodeName === 'DD' && node.previousSibling.nodeName === 'DT') {
+        if (node.nodeName === 'DD' && node.previousSibling && node.previousSibling.nodeName === 'DT') {
           targetDt = node.previousSibling;
           break;
         }
@@ -39,6 +39,13 @@
         targetDt.parentNode.insertBefore(dd, targetDt);
       });
     }
+    else if (node.nodeName === 'DL') {
+      editor.notificationManager.open({
+        text: 'Not possible to insert because of broken JS accordion structure.',
+        timeout: 3000,
+        type: 'warning'
+      });
+    }
   };
 
   const dlInsertAfter = function (editor) {
@@ -47,7 +54,7 @@
     if (node.nodeName === 'DD') {
       targetDd = node;
     }
-    else if (node.nodeName === 'DT' && node.nextSibling.nodeName === 'DD') {
+    else if (node.nodeName === 'DT' && node.nextSibling && node.nextSibling.nodeName === 'DD') {
       targetDd = node.nextSibling;
     }
     else {
@@ -59,7 +66,7 @@
           targetDd = node;
           break;
         }
-        if (node.nodeName === 'DT' && node.nextSibling.nodeName === 'DD') {
+        if (node.nodeName === 'DT' && node.nextSibling && node.nextSibling.nodeName === 'DD') {
           targetDd = node.nextSibling;
           break;
         }
@@ -75,6 +82,14 @@
         targetDd.parentNode.insertBefore(dt, targetDd.nextSibling);
       });
     }
+    else if (node.nodeName === 'DL') {
+      editor.notificationManager.open({
+        text: 'Not possible to insert because of broken JS accordion structure.',
+        timeout: 3000,
+        type: 'warning'
+      });
+    }
+
   };
 
   const dlDelItem = function (editor) {
@@ -101,7 +116,7 @@
       if (targetNode.nodeName === 'DT' && targetNode.nextSibling && targetNode.nextSibling.nodeName === 'DD') {
         delNodes.push(targetNode.nextSibling);
       }
-      else if (targetNode.nodeName === 'DD' && targetNode.previousSibling.nodeName === 'DT') {
+      else if (targetNode.nodeName === 'DD' && targetNode.previousSibling && targetNode.previousSibling.nodeName === 'DT') {
         delNodes.push(targetNode.previousSibling);
       }
       editor.undoManager.transact( function () {
